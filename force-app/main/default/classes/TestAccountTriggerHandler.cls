@@ -3,6 +3,7 @@ public class TestAccountTriggerHandler {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();
+        List<Contact> testContactList = new List<Contact>();
         for (Integer i = 0; i < 100; i++) {
             testAccountList.add(new Account(
                 Name = 'TA ' + i,
@@ -14,10 +15,17 @@ public class TestAccountTriggerHandler {
             ));
         }
         insert testAccountList;
+        for (Account account : testAccountList) {
+            testContactList.add(new Contact(
+                LastName = 'Test Contact for ' + account.Name,
+                AccountId = account.Id
+            ));
+        }
+        insert testContactList;
     }
 
     @IsTest
-    static void testIsertAccount() {
+    static void testInsertAccount() {
         List<Account> testAccountList = new List<Account>();
         for (Integer i = 0; i < 100; i++) {
             testAccountList.add(new Account(
@@ -69,7 +77,7 @@ public class TestAccountTriggerHandler {
         Test.startTest();
         update accountListToUpdate;
         Test.stopTest();
-        List<Account> actualAccountList = [
+        for (Account account : [
             SELECT Id, Name, ShippingCountry, BillingCountry,
                 ShippingState, BillingState,
                 ShippingCity, BillingCity,
@@ -77,9 +85,16 @@ public class TestAccountTriggerHandler {
                 ShippingPostalCode, BillingPostalCode
             FROM Account
             WHERE Name LIKE 'TA%'
-        ];
-        for (Account account : actualAccountList) {
+        ]) {
             System.assertEquals(account.BillingCity, account.ShippingCity);
+        }
+        for (Contact contact : [
+            SELECT Id, Processed_By_Future__c, Is_Synced__c
+            FROM Contact
+            WHERE LastName LIKE 'Test Contact for%'
+        ]) {
+            System.assertEquals(true, contact.Processed_By_Future__c);
+            System.assertEquals(false, contact.Is_Synced__c);
         }
     }
 }
