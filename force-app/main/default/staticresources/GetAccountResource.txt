@@ -1,0 +1,14 @@
+{
+	"account": {
+    	"Id":"0010900000U9InOAAV",
+		"Name":"GenePoint",
+        "Type":"Customer - Channel",
+        "BillingStreet":"345 Shoreline Park\nMountain View, CA 94043\nUSA",
+        "BillingCity":"Mountain View",
+        "BillingState":"CA",
+        "BillingPostalCode":"220000",
+        "BillingCountry":"USA",
+        "Industry":"Biotechnology",
+        "Phone":"(650) 867-3450"
+	}
+}
