@@ -1,5 +1,5 @@
 @IsTest
-public class TestAsyncProcessByQueue {
+private class TestAsyncProcessByQueue {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();

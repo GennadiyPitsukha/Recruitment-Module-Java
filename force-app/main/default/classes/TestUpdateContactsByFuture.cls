@@ -1,5 +1,5 @@
 @IsTest
-public class TestUpdateContactsByFuture {
+private class TestUpdateContactsByFuture {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();

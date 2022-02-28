@@ -1,5 +1,5 @@
 @IsTest
-public class TestUpdateContactBatchJobIterable {
+private class TestUpdateContactBatchJobIterable {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();

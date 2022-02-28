@@ -1,5 +1,5 @@
 @IsTest
-public class TestAccountTriggerHandler {
+private class TestAccountTriggerHandler {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();

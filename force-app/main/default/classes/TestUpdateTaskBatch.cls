@@ -27,6 +27,7 @@ private class TestUpdateTaskBatch {
         }
         insert testTaskList;
     }
+    
     @isTest
     static void testUpdateTaskBatch() {
         Test.startTest();

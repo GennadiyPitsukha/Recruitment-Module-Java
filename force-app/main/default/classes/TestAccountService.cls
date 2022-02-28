@@ -1,5 +1,5 @@
 @IsTest
-public class TestAccountService {
+private class TestAccountService {
     @IsTest
     static void testCreateAccountWithTask() {
         List<Account> accounts = new List<Account>();

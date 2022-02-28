@@ -1,31 +1,5 @@
 @IsTest
-public class TestScheduleBatchJobsSecondPartHW {
-    @TestSetup
-    static void makeData(){
-        List<Account> testAccountList = new List<Account>();
-        List<Contact> testContactList = new List<Contact>();
-        List<Task> testTaskList = new List<Task>();
-        for (Integer i = 0; i < 100; i++) {
-            testAccountList.add(new Account(
-                Name = 'TA ' + i,
-                BillingCountry = 'BC ' + i,
-                BillingState = 'BS ' + i,
-                BillingCity = 'BC ' + i,
-                BillingStreet = 'BS ' + i,
-                BillingPostalCode = 'BPC ' + i
-            ));
-        }
-        insert testAccountList;
-        for (Account account : testAccountList) {
-            testContactList.add(new Contact(
-                LastName = 'Test Contact for ' + account.Name,
-                AccountId = account.Id,
-                Is_Synced__c = false
-            ));
-        }
-        insert testContactList;
-    }
-
+private class TestScheduleBatchJobsSecondPartHW {
     @IsTest
     static void testScheduleBatchJobsSecondPartHW() {
         Test.startTest();

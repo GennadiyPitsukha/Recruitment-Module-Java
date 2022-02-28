@@ -1,5 +1,5 @@
 @IsTest
-public class TestUpdateContactBathcJobQueryLocator {
+private class TestUpdateContactBathcJobQueryLocator {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();

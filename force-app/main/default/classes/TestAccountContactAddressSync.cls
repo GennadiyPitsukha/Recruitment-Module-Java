@@ -1,5 +1,5 @@
 @IsTest
-public with sharing class TestAccountContactAddressSync {
+private class TestAccountContactAddressSync {
     @TestSetup
     static void makeData() {
         List<Account> testAccountList = new List<Account>();
